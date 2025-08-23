@@ -33,7 +33,8 @@ module Itacomp
   #     text content
   #
   #   <turbo-frame id='nav1' src='/books'>text content</turbo-frame>
-  class TurboFrameComponent < ViewComponent::Base
+  class TurboFrameComponent < BaseComponent
+    include CommonHelper
     # @option opts [String] :*
     #   each other key going as tag option
     # @yield [optional] turbo frame content
