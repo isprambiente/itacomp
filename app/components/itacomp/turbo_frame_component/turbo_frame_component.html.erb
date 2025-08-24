@@ -1,7 +1,7 @@
 <%= tag.turbo_frame **@keys do %>
   <% if @keys[:href].present? && content.blank? %>
     <div class="progress-spinner progress-spinner-active">
-      <%= visually_hidden t('.loading')%>
+      <%= ita_visually_hidden t('.loading')%>
     </div>
   <% else %>
     <%= content %>
