@@ -4,7 +4,8 @@ Itacomp is a [View Component](https://viewcomponent.org/) and [Helper](https://a
 
 ## Usage
 ### Helpers
-* ita_visually_hidden
+* [ita_visually_hidden](app/helpers/itacomp/application_helper.rb)
+* [ita_icon](app/helpers/itacomp/application_helper.rb)
 
 ### Components
 * Itacomp::TurboFrameComponent
