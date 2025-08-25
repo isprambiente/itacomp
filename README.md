@@ -4,10 +4,11 @@ Itacomp is a [View Component](https://viewcomponent.org/) and [Helper](https://a
 
 ## Usage
 ### Helpers
-* ita_visually_hidden
+* [ita_visually_hidden](app/helpers/itacomp/common_helper.rb)
+* [ita_icon](app/helpers/itacomp/common_helper.rb)
 
 ### Components
-* Itacomp::TurboFrameComponent
+* [TurboFrameComponent](app/components/itacomp/turbo_frame_component.rb)
 
 ## Installation
 Itacomp is in a rapid development phase and the gem will not be released on Rubygem until the [first project](https://github.com/orgs/isprambiente/projects/1) will be completed.
