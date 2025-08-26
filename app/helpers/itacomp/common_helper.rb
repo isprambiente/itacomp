@@ -1,4 +1,6 @@
 module Itacomp
+  # Common helper for itacomp component
+  # To add these helerp in your rails projec add `include Itacomp::CommonHelper` in yout `ApplicationHelper`
   module CommonHelper
     # @example ita_visually_hidden
     #  <span class="visually-hidden"></span>
