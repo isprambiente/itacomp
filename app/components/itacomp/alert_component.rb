@@ -4,31 +4,31 @@ module Itacomp
   # make a strcture for [alert component](https://italia.github.io/bootstrap-italia/docs/componenti/alert/)
   #
   # @example with no options
-  #   <%= render Itacomp::AlertComponent %>
+  #   <%= render ItacompAlertComponent.new %>
   #   <div class="alert alert-primary" role="alert"></div>
   # @example with text as params
-  #   <%= render Itacomp::AlertComponent('text') %>
+  #   <%= render ItacompAlertComponent.new('text') %>
   #   <div class="alert alert-primary" role="alert">text</div>
   # @example with text as block
-  #   <%= render Itacomp::AlertComponent do %>
+  #   <%= render ItacompAlertComponent.new do %>
   #     text
   #   <% end %>
   #   <div class="alert alert-primary" role="alert">text</div>
   # @example with closable alert
-  #   <%= render Itacomp::AlertComponent(close: true) %>
+  #   <%= render ItacompAlertComponent.new(close: true) %>
   #   <div class="alert alert-primary alert-dismissible fade show" role="alert">
   #     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Chiudi avviso">
   #       <svg class="icon"><use href="/assets/itacomp/sprites-c1ca51b0.svg#it-close" xlink:href="/assets/itacomp/sprites-c1ca51b0.svg#it-close"></use></svg>
   #     </button>
   #   </div>
   # @example with oter alert type (primary, info, success, warning, alert )
-  #   <%= render Itacomp::AlertComponent(type: :info) %>
+  #   <%= render ItacompAlertComponent.new(type: :info) %>
   #   <div class="alert alert-info" role="alert"></div>
   # @exaple with additional class
-  #   <%= render Itacomp::AlertComponent(class: 'pretty-class') %>
+  #   <%= render ItacompAlertComponent.new(class: 'pretty-class') %>
   #   <div class="alert alert-primary pretty-class" role="alert"></div>
   # @example with other key params
-  #   <%= render Itacomp::AlertComponent(id: 'my-id', data: {test: 'test'}) %>
+  #   <%= render ItacompAlertComponent.new(id: 'my-id', data: {test: 'test'}) %>
   #   <div class="alert alert-primary" id="my-id" data-test="test" role="alert"></div>
   class AlertComponent < BaseComponent
     # @param [String] text content for alert component, default nil
