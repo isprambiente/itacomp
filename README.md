@@ -40,6 +40,55 @@ The ViewComponent are available with:
 render Itacomp::TurboFrameComponent.new(id: 'nav', href: '/nav.html')
 ```
 
+## Make a demo app
+Generate a new rails application "itademo" with [bun](https://bun.sh/) or [yarn](https://getyarn.io/) as javascript approach and sass as css manager
+```
+rails new itademo -c sass -j bun
+cd itademo
+```
+
+Add itacompp gem in Gemfile.rb
+```
+gem "itacomp", path: "../itacomp"
+```
+
+and bundle it 
+```
+bundle update
+```
+
+Install bootstrap italia
+```
+bun install bootstrap-italia
+```
+
+Add bootstrap-italia style in `app/assets/stylesheets/application.sass.scss`
+```
+@forward "bootstrap-italia/src/scss/bootstrap-italia.scss";
+```
+
+Import bootstrap-italia in `app/javascript/application.js`
+```
+import "bootstrap-italia"
+```
+
+Generate a demo scaffold
+```
+./bin/rails g scaffold Book title:string body:text
+```
+
+define root as books index in `/config/routes.rb`
+```
+root "books#index"
+```
+
+Include Itacomp helper in `app/helpers/application_helper.rb`
+```
+include Itacomp::CommonHelper
+```
+
+Now you can update the layout in `app/views/layouts/application.html.erb` and the page in `app/views/books/index.html.erb`... **Thats all folk!**
+
 ## Contributing
 * Open a [issue](https://github.com/isprambiente/itacomp/issues)
 * Fork the project
