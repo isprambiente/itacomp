@@ -4,8 +4,11 @@ Itacomp is a [View Component](https://viewcomponent.org/) and [Helper](https://a
 
 ## Usage
 ### Helpers
-* [ita_visually_hidden](app/helpers/itacomp/common_helper.rb)
+* [ita_donut](app/helpers/itacomp/common_helper.rb)
 * [ita_icon](app/helpers/itacomp/common_helper.rb)
+* [ita_progress](app/helpers/itacomp/common_helper.rb)
+* [ita_spinner](app/helpers/itacomp/common_helper.rb)
+* [ita_visually_hidden](app/helpers/itacomp/common_helper.rb)
 
 ### Components
 * [TurboFrameComponent](app/components/itacomp/turbo_frame_component.rb)

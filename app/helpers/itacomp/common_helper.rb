@@ -14,11 +14,11 @@ module Itacomp
     # With text
     #   ita_visually_hidden('text')
     #   # => <span class="visually-hidden">text</span>
-    def ita_visually_hidden(content = nil)
-      tag.span content, class: "visually-hidden"
+    def ita_visually_hidden(text = nil)
+      tag.span text, class: "visually-hidden"
     end
 
-    # Return html structure for an {icon}[https://italia.github.io/bootstrap-italia/docs/utilities/icone/] 
+    # Return html structure for an {icon}[https://italia.github.io/bootstrap-italia/docs/utilities/icone/]
     #
     # ==== Options
     # * <tt>icon</tt> [String] no default (required), icon svg id
@@ -36,7 +36,7 @@ module Itacomp
     #   # => "<svg class="icon align-bottom" id="ok""><use href="/itacomp/sprites.svg#test" xlink:href="/itacomp/sprites.svg#test" /></svg>"
     def ita_icon(icon, sprites: "itacomp/sprites.svg", **opts)
       url = asset_path("#{sprites}##{icon}")
-      opts[:class] = ['icon', opts[:class]]
+      opts[:class] = [ "icon", opts[:class] ]
       tag.svg tag.use(href: url, "xlink:href": url),  **opts
     end
 
@@ -46,7 +46,7 @@ module Itacomp
     #
     # * <tt>content</tt> [String] default <tt>nil</tt>, text content in visually hidden tag
     # * <tt>:active</tt> [Boolean] default <tt>true</tt>, if true add <tt>progress-spinner-active</tt> class
-    # * <tt>:double</tt> [Boolean] default <tt>false</tt>, if active add <tt>progress-spinner-double</tt> class 
+    # * <tt>:double</tt> [Boolean] default <tt>false</tt>, if active add <tt>progress-spinner-double</tt> class
     # * <tt>:class</tt> [String,Array] default <tt>nil</tt>, if present is added as tag class after <tt>progress-spinner</tt>
     # * <tt>**opts</tt> each key is delegated as tag options
     #
@@ -66,14 +66,71 @@ module Itacomp
     # With additional class and text in span.visually-hidden tag
     #   ita_spinner('Loading', class: 'size-xl')
     #   # => <div class="progress-spinner progress-spinner-active size-xl"><span class="visually-hidden">Loading</span></div>
-    # With additional class, id attribute, data attribute abd text in span.visually-hidden tag 
+    # With additional class, id attribute, data attribute abd text in span.visually-hidden tag
     #   ita_spinner('Loading', class: 'size-xl', id: 'my-spinner', data-load: 'my-loader')
     #   # => <div id="my-spinner" class="progress-spinner progress-spinner-active size-xl" data-load="my-loader"><span class="visually-hidden">Loading</span></div>
     def ita_spinner(content = nil, active: true, double: false, **opts)
-      opts[:class] = ['progress-spinner', opts[:class]]
-      opts[:class] << 'progress-spinner-double' if double
+      opts[:class] = [ "progress-spinner", opts[:class] ]
+      opts[:class] << "progress-spinner-double" if double
       opts[:class] << "progress-spinner-active" if active
       tag.div ita_visually_hidden(content), **opts
+    end
+
+    # return html for a [Donuts component](https://italia.github.io/bootstrap-italia/docs/componenti/progress-indicators/#donuts)
+    #
+    # ==== Options
+    #
+    # * <tt>value</tt> [Integer] default <tt>0</tt>, integer intended as a percentage, example 20 as 20%, 120 as 120%
+    # * <tt>:class</tt> [String,Array] default <tt>nil</tt>, if present is added as tag class after <tt>progress-donut</tt>
+    # * <tt>:data</tt> [Hash] default <tt>{}</tt>, if present is merged with standard donut data options
+    # * <tt>**opts</tt> [Hash] default <tt>{}</tt>, each other named params is delegated to .progress-donut div.
+    #
+    # ==== Examples
+    # Without options (default 0%)
+    #   ita_donut()
+    #   # => <div class=\"progress-donut-wrapper\"><div class=\"progress-donut\" data-bs-progress-donut=\"true\" data-bs-value=\"0.0\"></div><span class=\"visually-hidden\">0%</span></div>
+    # with percentage
+    #   ita_donut(50)
+    #   # => <div class=\"progress-donut-wrapper\"><div class=\"progress-donut\" data-bs-progress-donut=\"true\" data-bs-value=\"0.5\"></div><span class=\"visually-hidden\">50%</span></div>
+    # With other option
+    #   ita_donut(50, id: 'my-donut', data: {test: tost})
+    #   # => <div class=\"progress-donut-wrapper\"><div id="my-donut" class=\"progress-donut\" data-bs-progress-donut=\"true\" data-bs-value=\"0.5\" data-test=\"tost\"></div><span class=\"visually-hidden\">50%</span></div>
+    def ita_donut(value = 0, **opts)
+      opts[:class] = [ "progress-donut", opts[:class] ]
+      opts[:data] = { bs_progress_donut: true, bs_value: value.to_i / 100.0 }.merge opts[:data].to_h
+      tag.div safe_join([ tag.div(**opts), ita_visually_hidden("#{value}%") ]), class: "progress-donut-wrapper"
+    end
+
+    # Return HTML for a [Progress component](https://italia.github.io/bootstrap-italia/docs/componenti/progress-indicators/#progress-bar)
+    #
+    # ==== Options
+    # * <tt>value</tt> [Integer] default <tt>nil</tt>, integer intended as a percentage, if present is percentage of prograss bar, if nil progress bar is set as indeterminate
+    # * <tt>:type</tt> [Stm,String] default <tt>nil</tt>, if present set color of progress bar from the bootstrap-italia type (primary, info, success, warning, alert)
+    #
+    # ==== Examples
+    # Without options
+    #   ita_progress
+    #   # => <div class="progress progress-indeterminate"><div class="progress-bar" role="progressbar"></div></div>
+    # With value
+    #   ita_progress(50)
+    #   # => <div class="progress"><div class="progress-bar" role="progressbar" style="width: 50%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></div></div>
+    # With value and color type
+    #   ita_progress(50, type: primary)
+    #   # => <div class="progress progress-color"><div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></div></div>
+    def ita_progress(value = nil, type: nil)
+      progress_class = [ "progress" ]
+      opts = { class: [ "progress-bar" ], role: "progressbar" }
+      if value.present?
+        opts[:style] = "width: #{value}%"
+        opts[:aria] = { valuemin: 0, valuemax: 100, valuenow: value }
+      else
+        progress_class << "progress-indeterminate"
+      end
+      if type.present?
+        progress_class << "progress-color"
+        opts[:class] << "bg-#{ITA_TYPES[type]}"
+      end
+      tag.div tag.div(**opts), class: progress_class
     end
   end
 end
