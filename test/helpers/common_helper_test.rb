@@ -32,4 +32,25 @@ class CommonHelperTest < ActionView::TestCase
     assert_equal '<div class="progress"><div class="progress-bar" role="progressbar" style="width: 50%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></div></div>', ita_progress(50)
     assert_equal '<div class="progress progress-color"><div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></div></div>', ita_progress(50, type: "primary")
   end
+
+  test "ita_size" do
+    assert_equal "size-md", ita_size
+    assert_equal "size-xs", ita_size(:xs)
+    assert_equal "size-xs", ita_size("xs")
+    assert_equal "size-md", ita_size(:other)
+  end
+
+  test "ita_bg" do
+    assert_equal "bg-primary", ita_bg
+    assert_equal "bg-secondary", ita_bg(:secondary)
+    assert_equal "bg-secondary", ita_bg("secondary")
+    assert_equal "bg-primary", ita_bg(:other)
+  end
+
+  test "ita_text" do
+    assert_equal "text-primary", ita_text
+    assert_equal "text-secondary", ita_text(:secondary)
+    assert_equal "text-secondary", ita_text("secondary")
+    assert_equal "text-primary", ita_text(:other)
+  end
 end
