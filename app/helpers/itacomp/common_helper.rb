@@ -105,7 +105,7 @@ module Itacomp
     #
     # ==== Options
     # * <tt>value</tt> [Integer] default <tt>nil</tt>, integer intended as a percentage, if present is percentage of prograss bar, if nil progress bar is set as indeterminate
-    # * <tt>:type</tt> [Stm,String] default <tt>nil</tt>, if present set color of progress bar from the bootstrap-italia type (primary, info, success, warning, alert)
+    # * <tt>:type</tt> [Sym,String] default <tt>nil</tt>, if present set color of progress bar from the bootstrap-italia type (primary, info, success, warning, alert)
     #
     # ==== Examples
     # Without options
@@ -131,6 +131,63 @@ module Itacomp
         opts[:class] << "bg-#{ITA_TYPES[type]}"
       end
       tag.div tag.div(**opts), class: progress_class
+    end
+
+    # return size class from bootstrap-italia size types.
+    #
+    # ==== Options
+    # * <tt>type</tt> [String] default <tt>nil</tt>, if nin or a value not included in ITA_SIZES is set as <tt>:md</tt>
+    #
+    # ==== Example
+    # Whitout params
+    #   ita_size()
+    #   # => "size-md"
+    # with valid params (:xs, :sm, :md, :lg, :xl, :xxl)
+    #   ita_size(:xs)
+    #   # => "size-xs"
+    # with invalid params
+    #   ira_size(:other)
+    #   # => "size-md"
+    def ita_size(type=nil)
+      "size-#{ITA_SIZES[type]}"
+    end
+
+    # return background class from bootstrap-italia color types.
+    #
+    # ==== Options
+    # * <tt>type</tt> [String] default <tt>nil</tt>, if nin or a value not included in ITA_TYPES is set as <tt>:primary</tt>
+    #
+    # ==== Example
+    # Whitout params
+    #   ita_type()
+    #   # => "bg-primary"
+    # with valid params (:primary, :secondary, :success, :danger, :warning, :white, :dark, :black)
+    #   ita_size(:secondary)
+    #   # => "bg-secondary"
+    # with invalid params
+    #   ira_size(:other)
+    #   # => "size-primary"
+    def ita_bg(type=nil)
+      "bg-#{ITA_TYPES[type]}"
+    end
+
+    # return text class from bootstrap-italia color types.
+    #
+    # ==== Options
+    # * <tt>type</tt> [String] default <tt>nil</tt>, if nin or a value not included in ITA_TYPES is set as <tt>:primary</tt>
+    #
+    # ==== Example
+    # Whitout params
+    #   ita_text()
+    #   # => "text-primary"
+    # with valid params (:primary, :secondary, :success, :danger, :warning, :white, :dark, :black)
+    #   ita_text(:secondary)
+    #   # => "text-secondary"
+    # with invalid params
+    #   ira_text(:other)
+    #   # => "text-primary"
+    def ita_text(type=nil)
+      "text-#{ITA_TYPES[type]}"
     end
   end
 end
