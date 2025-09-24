@@ -133,6 +133,19 @@ module Itacomp
       tag.div tag.div(**opts), class: progress_class
     end
 
+    # return a span.badge tag with an optional span.visually-hidden tag
+    #
+    # ==== Options
+    # * <tt>value</tt> [String], default <tt>nil</tt>, mandatory.badge content
+    # * <tt>msg</tt> [String], default <tt>nil</tt>, optional visually-hidden span message for accessibility
+    # * <tt>:class</tt> [String,Array] default <tt>nil</tt>, if present is added as tag class after <tt>badge</tt>
+    # * <tt>**opts</tt> [Hash] default <tt>{}</tt>, each other named params is delegated to span.badge tag.
+    def ita_badge(value, msg = nil, **opts)
+      opts[:class] = [ "badge", opts[:class] ]
+      hidden = msg.present? ? ita_visually_hidden(msg) : nil
+      safe_join([ tag.span(value, **opts), hidden ])
+    end
+
     # return size class from bootstrap-italia size types.
     #
     # ==== Options

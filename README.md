@@ -9,6 +9,7 @@ Itacomp is a [View Component](https://viewcomponent.org/) and [Helper](https://a
 * [ita_progress](app/helpers/itacomp/common_helper.rb)
 * [ita_spinner](app/helpers/itacomp/common_helper.rb)
 * [ita_visually_hidden](app/helpers/itacomp/common_helper.rb)
+* [ita_badge](app/helpers/itacomp/common_helper.rb)
 * [ita_size](app/helpers/itacomp/common_helper.rb)
 * [ita_bg](app/helpers/itacomp/common_helper.rb)
 * [ita_text](app/helpers/itacomp/common_helper.rb)
