@@ -9,10 +9,15 @@ Itacomp is a [View Component](https://viewcomponent.org/) and [Helper](https://a
 * [ita_progress](app/helpers/itacomp/common_helper.rb)
 * [ita_spinner](app/helpers/itacomp/common_helper.rb)
 * [ita_visually_hidden](app/helpers/itacomp/common_helper.rb)
+* [ita_size](app/helpers/itacomp/common_helper.rb)
+* [ita_bg](app/helpers/itacomp/common_helper.rb)
+* [ita_text](app/helpers/itacomp/common_helper.rb)
 
 ### Components
-* [TurboFrameComponent](app/components/itacomp/turbo_frame_component.rb)
 * [AlertComponent](app/components/itacomp/alert_component.rb)
+* [AvatorComponent](app/components/itacomp/avator_component.rb)
+* [NotificationComponent](app/components/itacomp/notification_component.rb)
+* [TurboFrameComponent](app/components/itacomp/turbo_frame_component.rb)
 
 ## Installation
 Itacomp is in a rapid development phase and the gem will not be released on Rubygem until the [first project](https://github.com/orgs/isprambiente/projects/1) will be completed.
