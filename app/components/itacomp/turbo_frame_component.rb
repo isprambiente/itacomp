@@ -40,7 +40,9 @@ module Itacomp
     # * <tt>*</tt> [Symbol], each key going as tag option
     # * <tt>yield</yy> optional turbo frame content
     def initialize(**keys)
+      @busy = keys[:href].present? && content.blank?
       @keys = keys
+      @keys[:aria] = {busy: true} if @busy
     end
   end
 end
