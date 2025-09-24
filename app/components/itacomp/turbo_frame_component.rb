@@ -3,7 +3,7 @@
 module Itacomp
   # Make a bootstrap-italia compatible structure for a [turbo Frame](https://turbo.hotwired.dev/handbook/frames) tag.
   #
-  # ==== Example  
+  # ==== Example
   # Empty turbo frame
   #   = render Itacomp::TurboFrameComponent.new
   #
@@ -42,7 +42,7 @@ module Itacomp
     def initialize(**keys)
       @busy = keys[:href].present? && content.blank?
       @keys = keys
-      @keys[:aria] = {busy: true} if @busy
+      @keys[:aria] = { busy: true } if @busy
     end
   end
 end

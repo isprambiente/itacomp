@@ -19,13 +19,13 @@ module Itacomp
     # * <tt>dismissable</tt> [Boolean] default <tt>true</tt> if true add dismiss button
     # * <tt>**opts</tt> each key is delegated as tag options. Default: {class: 'notification', id: Time.now.strftime("%H%M%S%L"), aria: {role: 'alert'}}
     # * <tt>yield</tt> notification content (content is automarically added in a `p` tag)
-    def initialize(title:, show: true, icon: nil , dismissable: true, **opts)
-      opts[:class] = ["notification", opts[:class]]
-      opts[:class] << 'with-icon' if icon.present?
-      opts[:class] << 'dismissable' if dismissable == true
+    def initialize(title:, show: true, icon: nil, dismissable: true, **opts)
+      opts[:class] = [ "notification", opts[:class] ]
+      opts[:class] << "with-icon" if icon.present?
+      opts[:class] << "dismissable" if dismissable == true
       opts[:id] = "not-#{Time.now.strftime("%H%M%S%L")}" if opts[:id].blank?
-      opts[:aria] = {labelledby: "#{opts[:id]}-title"} if opts[:aria].blank?
-      opts[:role] = 'alert'
+      opts[:aria] = { labelledby: "#{opts[:id]}-title" } if opts[:aria].blank?
+      opts[:role] = "alert"
       if show == true
         opts[:class] << "show"
         opts[:style] = "display: block;"
@@ -38,7 +38,7 @@ module Itacomp
 
     # return full title: text and optional icon
     def full_title
-      @icon.present? ? safe_join([ita_icon(@icon), @title]) : @title 
+      @icon.present? ? safe_join([ ita_icon(@icon), @title ]) : @title
     end
   end
 end

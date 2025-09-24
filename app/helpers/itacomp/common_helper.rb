@@ -148,7 +148,7 @@ module Itacomp
     # with invalid params
     #   ira_size(:other)
     #   # => "size-md"
-    def ita_size(type=nil)
+    def ita_size(type = nil)
       "size-#{ITA_SIZES[type]}"
     end
 
@@ -167,7 +167,7 @@ module Itacomp
     # with invalid params
     #   ira_size(:other)
     #   # => "size-primary"
-    def ita_bg(type=nil)
+    def ita_bg(type = nil)
       "bg-#{ITA_TYPES[type]}"
     end
 
@@ -186,7 +186,7 @@ module Itacomp
     # with invalid params
     #   ira_text(:other)
     #   # => "text-primary"
-    def ita_text(type=nil)
+    def ita_text(type = nil)
       "text-#{ITA_TYPES[type]}"
     end
   end
