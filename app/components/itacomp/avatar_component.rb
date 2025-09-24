@@ -4,7 +4,7 @@ module Itacomp
   # Make a bootstrap-italia compatible [Avatar](https://italia.github.io/bootstrap-italia/docs/componenti/avatar/) tag.
   #
   # ==== Example
-  # With no params 
+  # With no params
   #   <%= render Itacomp::Avatar.new %>
   #   <div class=\"avatar\"></div>
   # With content
@@ -33,7 +33,7 @@ module Itacomp
   #   <div class="avatar test">a</div>
   # With other options
   #   <%= render itacomp::avatar(id: "my_avatar", data: {turbo_frame: 'main'}).new.with_content('a') %>
-  #   <div id="my_avatar" class="avatar" data-turbo-frame="main">a</div>  
+  #   <div id="my_avatar" class="avatar" data-turbo-frame="main">a</div>
   class AvatarComponent < BaseComponent
     # Initialize avatar component
     #
@@ -43,8 +43,8 @@ module Itacomp
     # * <tt>class</tt> [String,Array] default <tt>nil</tt> if present is add class style after <tt>avatar</tt>
     # * <tt>**opts</tt> each key is delegated as tag options
     # * <tt>yield</tt> avatar content
-    def initialize(size: nil, bg: nil, class: nil ,**opts)
-      opts[:class] = ["avatar", opts[:class]]
+    def initialize(size: nil, bg: nil, class: nil, **opts)
+      opts[:class] = [ "avatar", opts[:class] ]
       opts[:class] << ita_size(size) if size.present?
       opts[:class] << avatar_bg(bg) if bg.present?
       @opts = opts

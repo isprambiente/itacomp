@@ -8,12 +8,7 @@ class Itacomp::AlertComponentTest < ViewComponent::TestCase
     assert_selector "div.alert.alert-primary[role='alert']", text: nil
   end
 
-  test "render text as params" do
-    render_inline Itacomp::AlertComponent.new("test")
-    assert_selector "div.alert.alert-primary[role='alert']", text: "test"
-  end
-
-  test "render text as block" do
+  test "render with content" do
     render_inline Itacomp::AlertComponent.new.with_content("test")
     assert_selector "div.alert.alert-primary[role='alert']", text: "test"
   end

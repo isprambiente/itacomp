@@ -1,7 +1,3 @@
 <%= tag.turbo_frame **@keys do %>
-  <% if @keys[:href].present? && content.blank? %>
-    <%= ita_spinner t('.loading') %>
-  <% else %>
-    <%= content %>
-  <% end %>
+  <%= @busy ? ita_spinner(t('.loading')) : content  %>
 <% end %>

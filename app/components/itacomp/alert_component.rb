@@ -6,9 +6,6 @@ module Itacomp
   # @example with no options
   #   <%= render ItacompAlertComponent.new %>
   #   <div class="alert alert-primary" role="alert"></div>
-  # @example with text as params
-  #   <%= render ItacompAlertComponent.new('text') %>
-  #   <div class="alert alert-primary" role="alert">text</div>
   # @example with text as block
   #   <%= render ItacompAlertComponent.new do %>
   #     text
@@ -31,19 +28,17 @@ module Itacomp
   #   <%= render ItacompAlertComponent.new(id: 'my-id', data: {test: 'test'}) %>
   #   <div class="alert alert-primary" id="my-id" data-test="test" role="alert"></div>
   class AlertComponent < BaseComponent
-    # @param [String] text content for alert component, default nil
     # @param [String,Sym] :type of alert, default 'primary'
     # @param [Boolean] :close if true is added close button
     # @param [String] :class add other class after "alsert alert-#{type}" classes
     # @param [Hash] **opts each other oprion is delegated to container tag
     # @yield [optional] turbo frame content
-    def initialize(text = nil, type: :primary, close: false, **opts)
+    def initialize(type: :primary, close: false, **opts)
       @close = close
       @opts = opts
       @opts[:class] = [ "alert", "alert-#{ITA_TYPES[type]}", @opts[:class] ]
       @opts[:class] << "alert-dismissible fade show" if close
       @opts[:role] = "alert"
-      @text = text
     end
 
     # @return html for close button if @close is true

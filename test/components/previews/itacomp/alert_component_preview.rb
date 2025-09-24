@@ -3,7 +3,7 @@
 module Itacomp
   class AlertComponentPreview < ViewComponent::Preview
     def default
-      render(AlertComponent.new(text: "text", type: "type", close: "close"))
+      render(AlertComponent.new(type: "primary", close: true))
     end
   end
 end

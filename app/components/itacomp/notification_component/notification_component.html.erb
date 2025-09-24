@@ -1,0 +1,10 @@
+<%= tag.div **@opts do %>
+  <%= tag.h2 full_title, id: @opts[:aria][:labelledby], class: 'h5' %>
+  <%= tag.p content if content.present? %>
+  <% if @dismissable == true %>
+    <%= tag.button class: "btn notification-close", data: {bs_toggle: "notification", bs_target: "##{@opts[:id]}"} do %>
+      <%= ita_icon "it-close" %>
+      <%= ita_visually_hidden "#{t(".close")} #{@title}" %>
+    <% end %>
+  <% end %>
+<% end %>
