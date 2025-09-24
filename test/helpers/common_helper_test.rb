@@ -35,8 +35,8 @@ class CommonHelperTest < ActionView::TestCase
 
   test "ita_badge" do
     assert_equal '<span class="badge">1</span>', ita_badge(1)
-    assert_equal '<span class="badge test" id="test">1</span>', ita_badge(1, class: 'test', id: 'test')
-    assert_equal '<span class="badge">1</span><span class="visually-hidden">test</span>', ita_badge(1, 'test')
+    assert_equal '<span class="badge test" id="test">1</span>', ita_badge(1, class: "test", id: "test")
+    assert_equal '<span class="badge">1</span><span class="visually-hidden">test</span>', ita_badge(1, "test")
   end
 
   test "ita_size" do
