@@ -18,6 +18,7 @@ Itacomp is a [View Component](https://viewcomponent.org/) and [Helper](https://a
 * [AlertComponent](app/components/itacomp/alert_component.rb)
 * [AvatorComponent](app/components/itacomp/avator_component.rb)
 * [NotificationComponent](app/components/itacomp/notification_component.rb)
+* [TabComponent](app/components/itacomp/tab_component.rb)
 * [TurboFrameComponent](app/components/itacomp/turbo_frame_component.rb)
 
 ## Installation
