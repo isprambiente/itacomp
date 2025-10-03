@@ -1,0 +1,10 @@
+<%= tag.div **@dimmable do %>
+  <%= tag.div **@dimmer do %>
+    <div class="dimmer-inner">
+      <%= dimmer_icon @icon if @icon.present? %>
+      <%= tag.p @text if @text.present? %>
+      <%= inner_content %>
+    </div>
+  <% end %>
+  <%= content %>
+<% end %>
