@@ -11,12 +11,12 @@ module Itacomp
     include CommonHelper
 
     # retur value if key is true
-    # 
+    #
     # ==== Options
     # <tt>Value</tt> [Any], mandatory, return value if <TT>key</TT> is true
     # <tt>Key</tt> [Boolean], if true, return <tt>value</tt>
     def if_key(value, key)
-      return value if key == true
+      value if key == true
     end
   end
 end
