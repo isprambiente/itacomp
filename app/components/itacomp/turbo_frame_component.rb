@@ -34,7 +34,7 @@ module Itacomp
   #     text content
   #
   #   <turbo-frame id='nav1' src='/books'>text content</turbo-frame>
-  class TurboFrameComponent < BaseComponent
+  class TurboFrameComponent < ApplicationComponent
     # Initialize TurboFrameComponent
     # ==== Options
     # * <tt>*</tt> [Symbol], each key going as tag option

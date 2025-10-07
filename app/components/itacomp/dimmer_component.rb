@@ -72,7 +72,7 @@ module Itacomp
   #     </div>
   #     <h4>my dimmable content</h4>
   #   </div>
-  class DimmerComponent < BaseComponent
+  class DimmerComponent < ApplicationComponent
     renders_one :inner_content
     # Initialize dimmer component
     #

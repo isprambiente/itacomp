@@ -27,7 +27,7 @@ module Itacomp
   # @example with other key params
   #   <%= render ItacompAlertComponent.new(id: 'my-id', data: {test: 'test'}) %>
   #   <div class="alert alert-primary" id="my-id" data-test="test" role="alert"></div>
-  class AlertComponent < BaseComponent
+  class AlertComponent < ApplicationComponent
     # @param [String,Sym] :type of alert, default 'primary'
     # @param [Boolean] :close if true is added close button
     # @param [String] :class add other class after "alsert alert-#{type}" classes

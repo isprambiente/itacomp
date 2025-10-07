@@ -1,0 +1,11 @@
+<figure class="overlay-wrapper">
+  <%= image_tag @img, **@opts %>
+  <%= tag.figcaption **@figcaption_opts do %>
+    <% if @icon.present? %>
+      <span class="visually-hidden"><%= content || @text %></span>
+      <%= ita_icon @icon %>
+    <% else %>
+      <span><%= content? ? content : @text %></span>
+    <% end %>
+  <% end %>
+</figure>

@@ -9,7 +9,7 @@ module Itacomp
   # Mo dismissable and no show
   #  <%= render Itacomp::NotificationComponent.new(title: 'test', dismissable: false, show: false) %>
   #  <div class="notification" id="not-171959203" aria-labelledby="not-171959203-title" role="alert">  <h2 id="not-171959203-title" class="h5">test</h2> </div>
-  class NotificationComponent < BaseComponent
+  class NotificationComponent < ApplicationComponent
     # Initialize notification component
     #
     # ==== Options
