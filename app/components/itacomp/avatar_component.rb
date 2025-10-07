@@ -34,7 +34,7 @@ module Itacomp
   # With other options
   #   <%= render itacomp::avatar(id: "my_avatar", data: {turbo_frame: 'main'}).new.with_content('a') %>
   #   <div id="my_avatar" class="avatar" data-turbo-frame="main">a</div>
-  class AvatarComponent < BaseComponent
+  class AvatarComponent < ApplicationComponent
     # Initialize avatar component
     #
     # ==== Options

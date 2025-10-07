@@ -15,7 +15,7 @@ module Itacomp
   #     <li class="nav-item"><a class="nav-link active" role="tab" href="/">Home</a></li>
   #     <li class="nav-item"><a class="nav-link" role="tab" href="/books">Books</a></li>
   #   </ul>
-  class TabComponent < ViewComponent::Base
+  class TabComponent < ApplicationComponent
     # Initialize tab component
     #
     # ==== options
